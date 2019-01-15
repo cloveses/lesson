@@ -10,3 +10,11 @@ def gettest():
     print(request.args.get('sname',''))
     print(request.args['sname'])
     return 'success!'
+
+@app.route('/posttest', methods=['GET','POST'])
+def posttest():
+    if request.method == 'GET':
+        return '<form method="post"><input name="name" type="text"><input type="submit"></form>'
+    elif request.method == 'POST':
+        print(request.form['name'])
+        return 'aa'
