@@ -36,55 +36,55 @@ def posttest():
         return 'aa'
 
 
-# @app.route('/statictest')
-# def statictest():
-#     url = url_for("static",filename='ppp.jpg')
-#     return '<img src="%s" />' % url
+@app.route('/statictest')
+def statictest():
+    url = url_for("static",filename='ppp.jpg')
+    return '<img src="%s" />' % url
 
-# @app.route('/redirect')
-# def redirecttest():
-#     return abort(404)
-#     return redirect(url_for('index'))
+@app.route('/redirect')
+def redirecttest():
+    return abort(404)
+    # return redirect(url_for('index'))
 
-# @app.errorhandler(404)
-# def ff(error):
-#     return 'err',404
+@app.errorhandler(404)
+def ff(error):
+    return 'err',404
 
-# @app.route('/resp_test')
-# def resp_test():
-#     resp = make_response('aaaaaaaaaa', 200)
-#     resp.headers['X-Something'] = 'Avvvv'
-#     return resp
+@app.route('/resp_test')
+def resp_test():
+    resp = make_response('aaaaaaaaaa', 200)
+    resp.headers['X-Something'] = 'Avvvv'
+    return resp
 
-# @app.route('/cookie_test')
-# def resp_test():
-#     resp = make_response('set cookie', 200)
-#     resp.set_cookie('username','dddc')
-#     return resp
+@app.route('/cookie_test')
+def cookie_test():
+    resp = make_response('set cookie', 200)
+    resp.set_cookie('username','dddc')
+    return resp
 
-# @app.route('/cookie_test2')
-# def resp_test2():
-#     resp = make_response('set cookie', 200)
-#     if request.cookies.get('username'):
-#         resp.set_cookie('username',request.cookies.get('username')+'a')
-#     else:
-#         resp.set_cookie('username','dddc')
-#     return resp
+@app.route('/cookie_test2')
+def resp_test2():
+    resp = make_response('set cookie', 200)
+    if request.cookies.get('username'):
+        resp.set_cookie('username',request.cookies.get('username')+'a')
+    else:
+        resp.set_cookie('username','dddc')
+    return resp
 
-# @app.route('/session_test')
-# def session_test():
-#     if 'username' in session:
-#         print(session['username'])
-#     else:
-#         session['username'] = 'name_in_session'
-#     return 'session_test'
+@app.route('/session_test')
+def session_test():
+    if 'username' in session:
+        print(session['username'])
+    else:
+        session['username'] = 'name_in_session'
+    return 'session_test'
 
-# @app.route('/temp_test')
-# def temp_test():
-#     name = 'abc'
-#     return render_template_string('Hello {{name}}!', name=name)
+@app.route('/temp_test')
+def temp_test():
+    name = 'abc'
+    return render_template_string('Hello {{name}}!', name=name)
 
-# @app.route('/tempfile_test')
-# def tempfile_test():
-#     name = 'abc'
-#     return render_template('index.html', name=name)
+@app.route('/tempfile_test')
+def tempfile_test():
+    name = 'abc'
+    return render_template('index.html', name=name)
